@@ -24,10 +24,10 @@ pub async fn report(
                         .field("Mensagem", format!("```md\n{}\n```", msg.content), true)
                         .field("Autor", msg.author.mention(), true)
                         .field("Canal", report_channel.mention(), false)
-                        .colour(msg.author.accent_colour.unwrap_or_default())
+                        .colour(cx.author().accent_colour.unwrap_or_default())
                         .author(|f| {
-                            f.name(&msg.author.name).icon_url(
-                                msg.author.avatar_url().as_ref().unwrap_or(&String::new()),
+                            f.name(&cx.author().name).icon_url(
+                                cx.author().avatar_url().as_ref().unwrap_or(&String::new()),
                             )
                         })
                 })
