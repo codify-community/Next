@@ -22,7 +22,7 @@ pub async fn report(
                 .add_embed(|e| {
                     e.title("Novo Report!")
                         .field("Mensagem", format!("```md\n{}\n```", msg.content), true)
-                        .field("Autor", msg.author.mention(), true)
+                        .field("Autor da mensagem", msg.author.mention(), true)
                         .field("Canal", report_channel.mention(), false)
                         .colour(cx.author().accent_colour.unwrap_or_default())
                         .author(|f| {
